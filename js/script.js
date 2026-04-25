@@ -96,11 +96,30 @@
         });
     };
 
+    var initContactForm = function() {
+        $('#contact-form').on('submit', function(e) {
+            e.preventDefault();
+            var $form = $(this);
+            var $btn = $form.find('button[type="submit"]');
+            var originalBtnText = $btn.text();
+
+            $btn.text('Sending...').prop('disabled', true);
+
+            // Simulate form submission
+            setTimeout(function() {
+                $form.fadeOut(function() {
+                    $form.html('<div class="text-center py-5"><h3 class="display-6 text-primary mb-3">Thank You!</h3><p class="fs-4 fw-light">Your message has been sent successfully. We will get back to you soon.</p></div>').fadeIn();
+                });
+            }, 1500);
+        });
+    };
+
     // document ready
     $(document).ready(function () {
         initSearch();
         initSlider();
         initCart();
+        initContactForm();
     });
 
 })(jQuery);
