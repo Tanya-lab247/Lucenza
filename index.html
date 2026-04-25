@@ -558,13 +558,13 @@
         <div class="col-lg-4 col-md-6">
           <article class="card-item mb-5">
             <div class="card-image text-center">
-              <a href="single-post.html">
+              <a href="#subscribe">
                 <img src="images/post-image1.jpg" alt="post-image" class="img-fluid rounded-5">
               </a>
             </div>
             <div class="card-body text-center my-3">
               <h3 class="display-6 text-capitalize m-0">
-                <a href="single-post.html" class="text-primary">Skincare brands for women</a>
+                <a href="#subscribe" class="text-primary">Skincare brands for women</a>
               </h3>
               <p>Justo maecenas facilisi cursus fermentum enim viverra.</p>
             </div>
@@ -573,13 +573,13 @@
         <div class="col-lg-4 col-md-6">
           <article class="card-item mb-5">
             <div class="card-image text-center">
-              <a href="single-post.html">
+              <a href="#subscribe">
                 <img src="images/post-image2.jpg" alt="post-image" class="img-fluid rounded-5">
               </a>
             </div>
             <div class="card-body text-center my-3">
               <h3 class="display-6 text-capitalize m-0">
-                <a href="single-post.html" class="text-primary">Easy skincare formula</a>
+                <a href="#subscribe" class="text-primary">Easy skincare formula</a>
               </h3>
               <p>Sed sed eleifend vel sed elementum pharetra quam.</p>
             </div>
@@ -588,13 +588,13 @@
         <div class="col-lg-4 col-md-6">
           <article class="card-item mb-5">
             <div class="card-image text-center">
-              <a href="single-post.html">
+              <a href="#subscribe">
                 <img src="images/post-image3.jpg" alt="post-image" class="img-fluid rounded-5">
               </a>
             </div>
             <div class="card-body text-center my-3">
               <h3 class="display-6 text-capitalize m-0">
-                <a href="single-post.html" class="text-primary">Simple habits for good skin</a>
+                <a href="#subscribe" class="text-primary">Simple habits for good skin</a>
               </h3>
               <p>Viverra fringilla amet quis sollicitudin scelerisque nibh.</p>
             </div>
@@ -602,7 +602,7 @@
         </div>
       </div>
       <div class="text-center">
-        <a href="#latest-blog" class="btn btn-lg btn-outline-gray text-uppercase mt-3 rounded-5">Read Blogs</a>
+        <a href="#subscribe" class="btn btn-lg btn-outline-gray text-uppercase mt-3 rounded-5">Read Blogs</a>
       </div>
     </div>
   </section>
@@ -615,14 +615,27 @@
         <div class="col-lg-9">
           <div class="subscribe-content">
             <div class="subscribe-header text-center">
-              <h2 class="display-2 text-capitalize">Subscribe to get updates</h2>
+              <h2 class="display-2 text-capitalize">Contact Us</h2>
+              <p class="fs-4 fw-light">Have questions? We'd love to hear from you.</p>
             </div>
-            <form id="form" class="py-5 position-relative">
-              <input type="text" name="email" placeholder="Write your email address here..."
-                class="w-100 bg-transparent border-0 border-bottom pb-3 fst-italic">
-              <svg class="send position-absolute svg-primary" width="54" height="54">
-                <use xlink:href="#send"></use>
-              </svg>
+            <form id="contact-form" class="py-5">
+              <div class="row">
+                <div class="col-md-6 mb-5">
+                  <input type="text" name="name" placeholder="Your Name"
+                    class="w-100 bg-transparent border-0 border-bottom pb-3 fst-italic">
+                </div>
+                <div class="col-md-6 mb-5">
+                  <input type="email" name="email" placeholder="Your Email Address"
+                    class="w-100 bg-transparent border-0 border-bottom pb-3 fst-italic" required>
+                </div>
+              </div>
+              <div class="mb-5">
+                <textarea name="message" placeholder="Your Message"
+                  class="w-100 bg-transparent border-0 border-bottom pb-3 fst-italic" rows="2"></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-lg btn-primary rounded-5 px-5 text-uppercase">Send Message</button>
+              </div>
             </form>
           </div>
         </div>
