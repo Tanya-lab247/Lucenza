@@ -23,9 +23,20 @@
   <link rel="icon" type="image/png" href="images2/Lucenza.jpg">
   <style>
     .checkout-container {
-      padding: 100px 0;
+      padding: 60px 0;
       background-color: var(--bs-body-bg);
     }
+    /* Override restrictive global styles */
+    .row {
+      flex-wrap: wrap !important;
+    }
+    .container, .container-lg, .container-fluid {
+      width: 100% !important;
+      max-width: 1200px !important;
+      min-width: auto !important;
+      padding: 0 15px !important;
+    }
+    
     .order-success {
       display: none;
       text-align: center;
@@ -35,15 +46,38 @@
       font-weight: bold;
       color: var(--bs-primary);
     }
+    .form-control {
+        border-radius: 10px;
+        padding: 12px 15px;
+        background-color: #fff;
+        border: 1px solid #eee;
+    }
     .form-control:focus {
         border-color: var(--bs-primary);
-        box-shadow: 0 0 0 0.25rem rgba(178, 133, 110, 0.25);
+        box-shadow: 0 0 0 0.25rem rgba(178, 133, 110, 0.1);
     }
     .checkout-form-card {
         background: white;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        padding: 40px;
+        border-radius: 30px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+        padding: 50px;
+        margin-bottom: 30px;
+    }
+    .list-group-item {
+        background-color: transparent;
+        border-color: #eee;
+        padding: 15px 0;
+    }
+    #checkout-cart-list .list-group-item:first-child {
+        border-top: 0;
+    }
+    .cart-summary-sticky {
+        position: sticky;
+        top: 20px;
+    }
+    .navbar-logo {
+        max-height: 100px !important;
+        width: auto !important;
     }
   </style>
 </head>
@@ -54,7 +88,7 @@
       <div class="row align-items-center">
         <div class="col-md-12 text-center py-3">
           <a href="index.html">
-            <img class="navbar-logo" src="images2/NoBG.png" alt="Logo" style="max-height: 80px;">
+            <img class="navbar-logo" src="images2/NoBG.png" alt="Logo">
           </a>
         </div>
       </div>
@@ -66,7 +100,8 @@
       <div id="checkout-section">
         <div class="row g-5">
           <div class="col-md-5 col-lg-4 order-md-last">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <div class="cart-summary-sticky">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
               <span class="text-primary">Your cart</span>
               <span class="badge bg-primary rounded-pill" id="checkout-cart-count">0</span>
             </h4>
@@ -77,6 +112,7 @@
             <div class="list-group-item d-flex justify-content-between bg-white p-3 border rounded shadow-sm">
               <span>Total (INR)</span>
               <strong id="checkout-cart-total">₹0</strong>
+            </div>
             </div>
           </div>
           
@@ -259,8 +295,8 @@
         
         var total = 0;
         cart.forEach(function(item) {
-          var itemTotal = item.price * item.quantity;
-          total += itemTotal;
+          var itemTotal = (item.price * item.quantity).toFixed(2);
+          total += parseFloat(itemTotal);
           $cartList.append(
             '<li class="list-group-item d-flex justify-content-between lh-sm">' +
             '<div><h6 class="my-0">' + item.name + '</h6><small class="text-body-secondary">Qty: ' + item.quantity + '</small></div>' +
@@ -269,7 +305,7 @@
           );
         });
         
-        $cartTotal.text('₹' + total);
+        $cartTotal.text('₹' + total.toFixed(2));
         $cartCount.text(cart.reduce((acc, item) => acc + item.quantity, 0));
       }
       
