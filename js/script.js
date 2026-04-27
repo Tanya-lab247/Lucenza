@@ -1,7 +1,7 @@
 (function($) {
     "use strict";
 
-    var cart = [];
+    var cart = JSON.parse(localStorage.getItem('lucenza_cart')) || [];
 
     var initSearch = function() {
         $(".user-items .search-item").click(function(){
@@ -75,6 +75,8 @@
             if ($(this).hasClass('badge')) $(this).text(totalQty);
             else $(this).text('(' + totalQty + ')');
         });
+
+        localStorage.setItem('lucenza_cart', JSON.stringify(cart));
     };
 
     var initCart = function() {
@@ -119,6 +121,7 @@
         initSearch();
         initSlider();
         initCart();
+        updateCartUI();
         initContactForm();
     });
 
