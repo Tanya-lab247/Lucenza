@@ -85,7 +85,7 @@
             var $product = $(this).closest('.product-item');
             var name = $product.find('.product-detail h3 a').text();
             var priceText = $product.find('.item-price').text();
-            var price = parseInt(priceText.replace(/[^0-9]/g, ''));
+            var price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
 
             var existingItem = cart.find(item => item.name === name);
             if (existingItem) {
